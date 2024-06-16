@@ -5,8 +5,16 @@
 }
 
 :root {
+  --bg-color: rgb(5, 2, 34);
+  --bg-gradient: linear-gradient(
+    140deg,
+    rgba(5, 2, 34, 1) 5%,
+    rgba(4, 4, 52, 1) 15%,
+    rgba(1, 1, 17, 1) 25%,
+    rgba(4, 4, 52, 1) 85%,
+    rgba(5, 2, 34, 1) 100%
+  );
   --text-color: white;
-  --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(255, 255, 255, 0.05);
@@ -15,8 +23,16 @@
 }
 
 .light {
+  --bg-color: rgb(202, 202, 233);
+  --bg-gradient: linear-gradient(
+    140deg,
+    rgba(202, 210, 233, 1) 6%,
+    rgba(194, 210, 246, 1) 14%,
+    rgba(255, 255, 255, 1) 22%,
+    rgba(194, 210, 246, 1) 86%,
+    rgba(202, 210, 233, 1) 100%
+  );
   --text-color: black;
-  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -24,177 +40,202 @@
   --switch-bg-url: url(./assets/sun.svg);
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background: var(--bg-url) no-repeat top center/cover;
+  background: rgb(5, 2, 34);
+  background: linear-gradient(
+    140deg,
+    rgba(5, 2, 34, 1) 5%,
+    rgba(4, 4, 52, 1) 15%,
+    rgba(1, 1, 17, 1) 25%,
+    rgba(4, 4, 52, 1) 85%,
+    rgba(5, 2, 34, 1) 100%
+  );
+
+  z-index: 1;
+  font-size: 1.6rem;
+}
+
+body::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: rgb(202, 202, 233);
+  background: linear-gradient(
+    140deg,
+    rgba(202, 210, 233, 1) 6%,
+    rgba(194, 210, 246, 1) 14%,
+    rgba(255, 255, 255, 1) 22%,
+    rgba(194, 210, 246, 1) 86%,
+    rgba(202, 210, 233, 1) 100%
+  );
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.light body::before {
+  opacity: 1;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+.max-width-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 588px;
+  padding-top: 5.6rem;
+  padding-inline: 2.4rem;
+  margin-inline: auto;
+
   min-height: 100vh;
   min-height: 100svh;
 }
 
-body * {
-  font-family: "Inter", sans-serif;
-  color: var(--text-color);
+.content {
+  flex: 1;
 }
 
-#container {
-  width: 100%;
-  max-width: 588px;
-  margin: 56px auto 0px;
-  padding: 0 24px;
-}
-
-/* profile */
-
-#profile {
+.profile {
   text-align: center;
-  padding: 24px;
+  padding: 2.4rem;
 }
 
-#profile img {
-  width: 112px;
-}
-
-#profile p {
-  font-weight: 500;
-  line-height: 24px;
-  margin-top: 8px;
-}
-
-/* switch */
-#switch {
-  position: relative;
-  width: 64px;
-
-  margin: 4px auto;
-}
-
-#switch button {
-  width: 32px;
-  height: 32px;
-  background: white var(--switch-bg-url) no-repeat center;
-  border: 0;
+.profile img {
+  width: 11.2rem;
   border-radius: 50%;
+  border: 2px solid var(--highlight-color);
+  transition: border-color 0.2s ease;
+}
 
+.profile p {
+  font-weight: 500;
+  line-height: 2.4rem;
+  margin-top: 0.8rem;
+}
+
+.switch {
+  position: relative;
+  display: block;
+
+  width: 6.4rem;
+  height: 2.4rem;
+  margin: 0.4rem auto;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.switch-icon {
   position: absolute;
   top: 50%;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
 
-  animation: slide-back 0.2s;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: white var(--switch-bg-url) no-repeat center;
+  border-radius: 50%;
+  outline: 8px solid transparent;
+
+  transition: background-image 0.2s ease, outline 0.2s ease, transform 0.2s ease;
 }
 
-#switch button:hover {
-  outline: 8px solid var(--highlight-color);
+.switch:hover .switch-icon {
+  outline-color: var(--highlight-color);
 }
 
-.light #switch button {
-  animation: slide-in 0.2s forwards;
+.light .switch-icon {
+  transform: translate(100%, -50%);
 }
 
-#switch span {
-  display: block;
-  width: 64px;
-  height: 24px;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 9999px;
-}
-
-/* links */
-ul {
+.main-links {
   list-style: none;
 
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
 
-  padding: 24px 0;
+  padding-block: 2.4rem;
 }
 
-ul li a {
+.main-links li a {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 16px 24px;
+  padding: 1.6rem 2.4rem;
 
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
 
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
+  text-align: center;
   text-decoration: none;
   font-weight: 500;
 
-  transition: background 0.2s;
+  transition: background-color 0.2s ease, border 0.2s ease;
 }
 
-/* pseudo-selector */
-ul li a:hover {
+.main-links li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
 }
 
-/* social links */
-#social-links {
+.social-links {
   display: flex;
   justify-content: center;
 
-  padding: 24px 0;
+  padding-block: 2.4rem;
 
-  font-size: 24px;
+  font-size: 2.4rem;
+  list-style: none;
 }
 
-#social-links a {
+.social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 1.6rem;
 
-  transition: background 0.2s;
+  transition: background-color 0.2s;
   border-radius: 50%;
 }
 
-#social-links a:hover {
+.social-links a:hover {
   background: var(--highlight-color);
 }
 
 footer {
-  padding: 24px 0;
+  padding-block: 2.4rem 5.6rem;
   text-align: center;
-  font-size: 14px;
-}
-
-/* media queries */
-@media (min-width: 700px) {
-  :root {
-    --bg-url: url(./assets/bg-desktop.jpg);
-  }
-
-  .light {
-    --bg-url: url(./assets/bg-desktop-light.jpg);
-  }
-}
-
-/* animation */
-@keyframes slide-in {
-  from {
-    left: 0;
-  }
-  to {
-    left: 50%;
-  }
-}
-
-@keyframes slide-back {
-  from {
-    left: 50%;
-  }
-  to {
-    left: 0;
-  }
+  font-size: 1.4rem;
 }
