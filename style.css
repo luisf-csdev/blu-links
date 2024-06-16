@@ -5,15 +5,6 @@
 }
 
 :root {
-  --bg-color: rgb(5, 2, 34);
-  --bg-gradient: linear-gradient(
-    140deg,
-    rgba(5, 2, 34, 1) 5%,
-    rgba(4, 4, 52, 1) 15%,
-    rgba(1, 1, 17, 1) 25%,
-    rgba(4, 4, 52, 1) 85%,
-    rgba(5, 2, 34, 1) 100%
-  );
   --text-color: white;
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
@@ -23,15 +14,6 @@
 }
 
 .light {
-  --bg-color: rgb(202, 202, 233);
-  --bg-gradient: linear-gradient(
-    140deg,
-    rgba(202, 210, 233, 1) 6%,
-    rgba(194, 210, 246, 1) 14%,
-    rgba(255, 255, 255, 1) 22%,
-    rgba(194, 210, 246, 1) 86%,
-    rgba(202, 210, 233, 1) 100%
-  );
   --text-color: black;
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
@@ -66,6 +48,9 @@ body::before {
   right: 0;
   bottom: 0;
   left: 0;
+
+  min-height: 100vh;
+  min-height: 100svh;
 
   background: rgb(202, 202, 233);
   background: linear-gradient(
