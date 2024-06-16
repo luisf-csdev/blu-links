@@ -7,49 +7,110 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="icon" type="image/svg+xml" href="./public/icon.svg" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevLinks</title>
+    <title>Blu-links</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="container">
-      <div id="profile">
-        <img src="./assets/avatar.png" alt="Profile picture" />
-        <p>@luisf-csdev</p>
+    <div class="max-width-container">
+      <div class="content">
+        <div class="profile">
+          <img src="https://github.com/luisf-csdev.png" alt="Profile picture" />
+          <p>@luisf-csdev</p>
+        </div>
+
+        <label class="switch">
+          <input type="checkbox" onchange="handleThemeToggle()" />
+          <span class="switch-icon"></span>
+        </label>
+
+        <ul class="main-links">
+          <li>
+            <a
+              href="https://github.com/luisf-csdev"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              See my portfolio
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.upwork.com/freelancers/~012f2d4025c489d378"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Looking for a freelancer?
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://automatepod.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Explore the best print-on-demand automation tools
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="mailto:luisf.csdev@gmail.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Contact me
+            </a>
+          </li>
+        </ul>
+
+        <ul class="social-links">
+          <li>
+            <a
+              href="https://github.com/luisf-csdev"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <ion-icon name="logo-github" />
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://x.com/luisf_csdev"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <ion-icon name="logo-twitter" />
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.linkedin.com/in/luisf-csdev"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <ion-icon name="logo-linkedin" />
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div onclick="toggleMode()" id="switch">
-        <button></button>
-        <span></span>
-      </div>
-
-      <ul>
-        <li><a href="#" target="_blank">Inscrever-se no NLW</a></li>
-        <li><a href="#" target="_blank">Baixar meu e-book</a></li>
-        <li><a href="#" target="_blank">Ver meu portfólio</a></li>
-        <li><a href="#" target="_blank">Conheça o explorer</a></li>
-      </ul>
-
-      <div id="social-links">
-        <a href="#" target="_blank">
-          <ion-icon name="logo-github"></ion-icon>
+      <footer>
+        Made with 💙 by
+        <a
+          href="https://github.com/luisf-csdev"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Luís Felipe
         </a>
-        <a href="#" target="_blank">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-
-        <a href="#" target="_blank">
-          <ion-icon name="logo-youtube"></ion-icon>
-        </a>
-
-        <a href="#" target="_blank">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-      </div>
-
-      <footer>Feito com ♥ pela <a href="#">Rocketseat</a></footer>
+      </footer>
     </div>
 
     <script
